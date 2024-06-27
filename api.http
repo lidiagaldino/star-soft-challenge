@@ -1,0 +1,44 @@
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+  "email": "malu@example.com",
+  "password": "malu123"
+}
+
+###
+POST http://localhost:3000/sessions
+Content-Type: application/json
+
+{
+  "email": "malu@example.com",
+  "password": "malu123"
+}
+### eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hbHVAZXhhbXBsZS5jb20iLCJzdWIiOjIsImlhdCI6MTcxOTQ0NDIxNn0.q3ma72VQc1CeRYhJeIcLEnjVyOPd4W7dSG1I-gNsYMs
+###
+POST http://localhost:3000/movies
+Content-Type: application/json
+
+{
+  "name": "Movies",
+  "description": "movie",
+  "rating": 5,
+  "duration": 1,
+  "year": 2015
+}
+
+###
+GET http://localhost:3000/movies
+
+###
+GET http://localhost:3000/movies/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hbHVAZXhhbXBsZS5jb20iLCJzdWIiOjIsImlhdCI6MTcxOTQ0NDgxNiwiZXhwIjoxNzIwMDQ5NjE2fQ.eHHZbV9IWVWkx638ZpVijxhgWqUwBnaGiO4r4w9steU
+
+###
+PATCH http://localhost:3000/movies/1
+Content-Type: application/json
+
+{
+  "name": "Movie updated"
+}
+

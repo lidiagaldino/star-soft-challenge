@@ -1,0 +1,30 @@
+services:
+  app:
+    image: starsoftapp.azurecr.io/app
+    build: .
+    environment: 
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_USERNAME=nest
+      - DB_PASSWORD=NestPassword!123
+      - DB_NAME=nest
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - REDIS_PASSWORD=RedisPassword!123
+      - JWT_SECRET=secret
+
+    volumes:
+      - ./:/home/node/app
+  db:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: "NestPassword!123"
+      POSTGRES_USER: "nest"
+      POSTGRES_DB: "nest"
+    ports:
+      - "5432:5432"
+  redis:
+    image: redis
+    command: redis-server --requirepass RedisPassword!123
+    ports:
+      - "6379:6379"
